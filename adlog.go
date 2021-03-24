@@ -4,7 +4,6 @@ import (
   "flag"
   "os"
   "log"
-  "go/build"
 )
 
 var (
