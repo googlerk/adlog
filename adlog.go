@@ -16,7 +16,11 @@ func init() {
     var logpath = "./logs/adlogs.log"
 
    flag.Parse()
-   var file, err1 = os.Create(logpath)
+   f, err := os.OpenFile(logpath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+    if err != nil {
+      log.Println(err)
+    }
+    defer f.Close()
 
    if err1 != nil {
       panic(err1)
